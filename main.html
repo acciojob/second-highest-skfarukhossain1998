@@ -8,10 +8,24 @@
 
 <body>	
 	<script>
+		//arr=7,8,9,2,5,6
 		function secondHighest(arr) {
-			let arr1=arr.sort();
-			let arr2=arr[arr.length-1];
-			return arr2;
+			let arr1=arr[0];
+			let second=arr[0];
+			for (let index = 0; index < arr.length; index++) {
+				if(arr[i]>arr1)
+				{
+					second=arr1;
+					arr1=arr[i];
+				}
+					else if(arr[i]>second){
+					second=arr[i];	
+					}
+				return second;
+					
+			}
+			
+		
 			
 		}
 
