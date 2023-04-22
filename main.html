@@ -10,21 +10,35 @@
 	<script>
 		//arr=7,8,9,2,5,6
 		function secondHighest(arr) {
-			let arr1=arr[0];
-			let second=arr[0];
-			for (let index = 0; index < arr.length; index++) {
-				if(arr[i]>arr1)
-				{
-					second=arr1;
-					arr1=arr[i];
-				}
-					else if(arr[i]>second){
-					second=arr[i];	
-					}
-				return second;
-					
-			}
-			
+  // If the array is empty or has only 1 element, return -Infinity
+  if (arr.length <= 1) {
+    return -Infinity;
+  }
+
+  // Find the maximum element in the array
+  let max = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+
+  // Find the second highest element in the array
+  let secondHighest = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < max && arr[i] > secondHighest) {
+      secondHighest = arr[i];
+    }
+  }
+
+  // If all elements are the same, return -Infinity
+  if (secondHighest === -Infinity) {
+    return -Infinity;
+  }
+
+  return secondHighest;
+
+}		
 		
 			
 		}
