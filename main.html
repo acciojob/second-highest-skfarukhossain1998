@@ -9,36 +9,28 @@
 <body>	
 	<script>
 		//arr=7,8,9,2,5,6
-		function secondHighest(arr) {
-  // If the array is empty or has only 1 element, return -Infinity
+function secondHighest(arr) {
   if (arr.length <= 1) {
     return -Infinity;
   }
 
-  // Find the maximum element in the array
-  let max = -Infinity;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > max) {
-      max = arr[i];
-    }
-  }
+  // Remove duplicates from the array
+  var uniqueArr = [...new Set(arr)];
 
-  // Find the second highest element in the array
-  let secondHighest = -Infinity;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < max && arr[i] > secondHighest) {
-      secondHighest = arr[i];
-    }
-  }
+  // Sort the array in descending order
+  var sortedArr = uniqueArr.sort(function(a, b) {
+    return b - a;
+  });
 
-  // If all elements are the same, return -Infinity
-  if (secondHighest === -Infinity) {
+  // Check if all elements are the same
+  if (sortedArr.every(function(element) {
+    return element === sortedArr[0];
+  })) {
     return -Infinity;
   }
 
-  return secondHighest;
-
-}		
+  return sortedArr[1];
+}	
 		
 			
 		}
